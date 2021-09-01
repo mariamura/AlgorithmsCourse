@@ -1,8 +1,8 @@
 package algoritms.derekbanas;
 
 public class ArrayStructures {
-    private int[] array = new int[50];
-    private int arraySize = 10;
+    static int[] array = new int[50];
+    static int arraySize = 10;
 
     public void generateArray() {
         for(int i = 0; i<arraySize; i++) {
@@ -57,21 +57,26 @@ public class ArrayStructures {
 
     public String linerSearchForValue(int value) {
         boolean check = false;
-        String indexWithValue;
-        System.out.println("value was found in the: ");
-        return "";
+        String indexWithValue = "";
+        System.out.print("value was found in the: ");
+        for(int i = 0; i<arraySize-1; i++) {
+            if(array[i]==value) {
+                check = true;
+                System.out.print(i + " ");
+                indexWithValue+= i + " ";
+            }
+        }
+        if(!check) {
+            indexWithValue = "none";
+            System.out.print(indexWithValue);
+        }
+        System.out.println();
+        return indexWithValue;
 
     }
 
     public static void main(String[] args) {
-        ArrayStructures arrayStructures = new ArrayStructures();
-        arrayStructures.generateArray();
-        arrayStructures.printArray();
-        System.out.println(arrayStructures.getValue(5));
-        System.out.println(arrayStructures.checkValue(100));
 
-        arrayStructures.deleteValue(18);
-        arrayStructures.printArray();
 
     }
 }
